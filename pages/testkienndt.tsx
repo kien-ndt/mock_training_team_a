@@ -4,6 +4,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import TextFieldCustom from '../components/common-components/input'
 import SelectBoxCustom from '../components/common-components/selectbox'
+import LabelForm from '../components/modules/registration/common/labelForm'
 
 const Test: NextPage = () => {
   return (
@@ -18,6 +19,7 @@ const Test: NextPage = () => {
       
       <h1>aflsaflasdfklj</h1>
       <SelectBoxCustom options={top100Films} value={top100Films[0]} placeholder='123123123' fullWidth/>
+      <LabelForm label='nguyen dang trung kien' bold={true}/>
     </div>
   )
 }
