@@ -7,12 +7,14 @@ import SelectBoxCustom from '../components/common-components/selectbox'
 import LabelForm from '../components/modules/registration/common/labelForm'
 import PaginationButtons from '../components/common-components/pagination'
 import Sidebar from "../components/layout/sidebar/sidebar"
+import SectionA from '../components/modules/registration/sectionA'
 
 const Test: NextPage = () => {
   return (
     <div className={styles.container}>
 
-      <Sidebar />
+      {/* <Sidebar /> */}
+      <SectionA />
 
       {/* <PaginationButtons page={2} count={10} countPagesShow={5} showLastButton showNearButton /> */}
 
