@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css'
 import TextFieldCustom from '../components/common-components/input'
 import SelectBoxCustom from '../components/common-components/selectbox'
 
-const Home: NextPage = () => {
+const Test: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
@@ -14,11 +14,16 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>aflsaflasdfklj</h1>
-      <TextFieldCustom placeholder='123' />
-      <SelectBoxCustom options={top100Films} value={top100Films[0]}/>
+      <TextFieldCustom placeholder='122222223' fullWidth />
+      
+      <h1>aflsaflasdfklj</h1>
+      <SelectBoxCustom options={top100Films} value={top100Films[0]} placeholder='123123123' fullWidth/>
     </div>
   )
 }
+
+
+
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },
   { label: 'The Godfather', year: 1972 },
@@ -145,4 +150,4 @@ const top100Films = [
   { label: '3 Idiots', year: 2009 },
   { label: 'Monty Python and the Holy Grail', year: 1975 },
 ];
-export default Home
+export default Test
