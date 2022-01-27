@@ -19,6 +19,7 @@ const Home: NextPage = () => {
         }
       />
       <TitleUpload content="1. title dsadsadasdasdasds" />
+      <TitleUpload content="Section A" color="red" fontWeight="bold" />
     </div>
   );
 };
