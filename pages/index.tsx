@@ -3,6 +3,7 @@ import StepUI from "../components/common-components/stepper";
 
 import Line from "../components/common-components/stepper/line";
 import Element from "../components/modules/dashboard/common/element";
+import TitleUpload from "../components/modules/registration/common/title_upload";
 
 const Home: NextPage = () => {
   const aduvip = () => {
@@ -15,6 +16,7 @@ const Home: NextPage = () => {
         content="Assert Protection"
         onClick={aduvip}
       />
+      <TitleUpload content="1. Title upload file" />
 
       <StepUI size="small" content="Section 5" disable={true} />
       <StepUI size="small" content="Section 1" />
