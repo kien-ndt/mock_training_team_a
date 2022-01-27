@@ -11,6 +11,7 @@ import { Props } from "./stepper.model";
  * 3. value -> 5 step corresponding [1, 2, 3, 4, 5] -> default: 1
  * 4. color -> [red, gray] -> default: red
  * 5. onclick -> handle event when clicked
+ * 6. disable -> disable button
  */
 const StepNumber: React.FC<Props> = ({
   content,
@@ -18,6 +19,7 @@ const StepNumber: React.FC<Props> = ({
   value,
   color,
   onClick,
+  disable,
 }) => {
   // CSS of div with style is divRedStyle
   const divRedStyle = {
@@ -49,10 +51,15 @@ const StepNumber: React.FC<Props> = ({
       {color === "red" && (
         <div style={divRedStyle}>
           <Fab
+            disabled={disable}
             onClick={onClick}
             size={size}
             sx={{
               ":hover": {
+                bgcolor: "#D03A2B",
+                color: "white",
+              },
+              ":disabled": {
                 bgcolor: "#D03A2B",
                 color: "white",
               },
@@ -73,10 +80,15 @@ const StepNumber: React.FC<Props> = ({
       {color === "gray" && (
         <div style={divGrayStyle}>
           <Fab
+            disableRipple={disable}
             onClick={onClick}
             size={size}
             sx={{
               ":hover": {
+                bgcolor: "#B5BDC3",
+                color: "white",
+              },
+              ":disabled": {
                 bgcolor: "#B5BDC3",
                 color: "white",
               },

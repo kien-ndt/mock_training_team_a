@@ -17,6 +17,7 @@ import { Props } from "./stepper.model";
  * 4. color (when type is number) -> [red, gray] -> default: red
  * 5. onclick -> handle event when clicked
  * 6. content (content under button) -> example: Section 5
+ * 7. disable -> disable button -> default: false
  *
  * Example: Button Icon(small) -> Button Number Gray(medium) -> Button Number red(lager):
  * {
@@ -32,16 +33,27 @@ const StepUI: React.FC<Props> = ({
   value,
   color,
   onClick,
+  disable,
 }) => {
   // Default value of type
   if (type == null || type == "" || type == "undefined") {
     type = "icon";
   }
 
+  // Default value of disable
+  if (disable == null) {
+    disable = false;
+  }
+
   return (
     <Box sx={{ "& > :not(style)": { m: 1 } }}>
       {type === "icon" && (
-        <ButtonIcon size={size} content={content} onClick={onClick} />
+        <ButtonIcon
+          size={size}
+          content={content}
+          onClick={onClick}
+          disable={disable}
+        />
       )}
       {type === "number" && (
         <ButtonNumber
@@ -50,6 +62,7 @@ const StepUI: React.FC<Props> = ({
           color={color}
           content={content}
           onClick={onClick}
+          disable={disable}
         />
       )}
     </Box>

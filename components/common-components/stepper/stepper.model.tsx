@@ -5,4 +5,5 @@ export type Props = {
   color?: string;
   content?: string;
   onClick?: () => void;
+  disable?: boolean;
 };

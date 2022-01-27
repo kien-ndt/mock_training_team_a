@@ -10,8 +10,9 @@ import { Props } from "./stepper.model";
  * 1. content (content under button) -> example: Section 5
  * 2. size -> [large, small, medium] -> default: large
  * 3. onclick -> handle event when clicked
+ * 4. disable -> disable button
  */
-const StepIcon: React.FC<Props> = ({ content, size, onClick }) => {
+const StepIcon: React.FC<Props> = ({ content, size, onClick, disable }) => {
   // CSS of div with style is divStyle
   const divStyle = {
     textAlign: "center",
@@ -21,10 +22,14 @@ const StepIcon: React.FC<Props> = ({ content, size, onClick }) => {
   return (
     <div style={divStyle}>
       <Fab
+        disabled={disable}
         onClick={onClick}
         size={size}
         sx={{
           ":hover": {
+            bgcolor: "#C3FFD1",
+          },
+          ":disabled": {
             bgcolor: "#C3FFD1",
           },
           bgcolor: "#C3FFD1",
