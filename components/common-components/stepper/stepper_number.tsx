@@ -1,28 +1,42 @@
 import React from "react";
 import Fab from "@mui/material/Fab";
-import { Props } from "./button.model";
+import { Props } from "./stepper.model";
 
-const divRedStyle = {
-  textAlign: "center",
-  color: "#D03A2B",
-};
-
-const divGrayStyle = {
-  textAlign: "center",
-  color: "#A1A7B2",
-};
-
-const ButtonNumber: React.FC<Props> = ({
+/**
+ * Button for section step of register page
+ *
+ * Params {props}:
+ * 1. content (content under button) -> example: Section 5
+ * 2. size -> [large, small, medium] -> default: large
+ * 3. value -> 5 step corresponding [1, 2, 3, 4, 5] -> default: 1
+ * 4. color -> [red, gray] -> default: red
+ * 5. onclick -> handle event when clicked
+ */
+const StepNumber: React.FC<Props> = ({
   content,
   size,
   value,
   color,
   onClick,
 }) => {
-  // Default value
+  // CSS of div with style is divRedStyle
+  const divRedStyle = {
+    textAlign: "center",
+    color: "#D03A2B",
+  };
+
+  // CSS of div with style is divGrayStyle
+  const divGrayStyle = {
+    textAlign: "center",
+    color: "#A1A7B2",
+  };
+
+  // Default value of color
   if (color == null || color == "" || color == "undefined") {
     color = "red";
   }
+
+  // Default value of value
   if (value == null || value == "" || value == "undefined") {
     value = "1";
   }
@@ -80,4 +94,4 @@ const ButtonNumber: React.FC<Props> = ({
   );
 };
 
-export default ButtonNumber;
+export default StepNumber;

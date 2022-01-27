@@ -5,6 +5,10 @@ import Step from "@mui/material/Step";
 
 const steps = ["Select master blaster campaign settings", "Create an ad group"];
 
+/**
+ * Line of section block or step of register page
+ *
+ */
 function Line() {
   return (
     <Box sx={{ width: "100%" }}>
