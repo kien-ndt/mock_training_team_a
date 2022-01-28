@@ -4,8 +4,8 @@
  */
 import React from "react";
 import Box from "@mui/material/Box";
-import ButtonIcon from "./stepper_icon";
-import ButtonNumber from "./stepper_number";
+import ButtonIcon from "./stepperIcon";
+import ButtonNumber from "./stepperNumber";
 import { Props } from "./stepper.model";
 /**
  * Button for section block or step of register page

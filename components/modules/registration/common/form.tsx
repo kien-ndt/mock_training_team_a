@@ -7,19 +7,27 @@
  */
 import React from 'react';
 import { useForm, Controller  } from 'react-hook-form'
-import { formInput } from './formInput'
+import { formInput } from './commonType'
 import TextFieldCustom from '../../../common-components/input';
 import SelectBoxCustom from '../../../common-components/selectbox'
-import { idFormSectionA } from './constants'
 import Grid from '@mui/material/Grid';
 import LabelForm from './labelForm';
 
+/**
+ * fields -> list fields of form, contains properties: label (which show to screen), rules: validate form (inprogress)
+ *              property (field form return), type (selectbox or input) and optionsSelect: option for selectbox, compulsory property - label
+ * submitForm -> callback submitform
+ * formId -> id form, serve for submiting button outside form <button type='submit' form={formId}/>
+ */
 type propsType = {
     fields: Array<formInput>
     submitForm: (data: any) => void
     formId: string
 }
 
+/**
+ * template form component, receive array input props fields, callback submitForm and formId to be submitted from anywhere
+ */
 function RegistrationForm(props: propsType) {
     const { control, handleSubmit } = useForm();
 
@@ -32,10 +40,10 @@ function RegistrationForm(props: propsType) {
                 fields && fields.length > 0 &&
                 fields.map((item, index) => (
                     <React.Fragment key={"controlel"+index}>                    
-                        <Grid item xs={4}>
-                            <LabelForm label={item.label} bold/>
+                        <Grid item xs={4} alignContent="center" display="flex" alignItems="center">
+                            <LabelForm label={item.label} style={item.labelStyle}/>
                         </Grid>
-                        <Grid item xs={8}>
+                        <Grid item xs={8} alignContent="center" display="flex" alignItems="center">
                             <Controller
                                 name={item.property}
                                 rules={item.rules}

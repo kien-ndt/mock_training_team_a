@@ -6,15 +6,24 @@ import TextFieldCustom from '../components/common-components/input'
 import SelectBoxCustom from '../components/common-components/selectbox'
 import LabelForm from '../components/modules/registration/common/labelForm'
 import PaginationButtons from '../components/common-components/pagination'
-import Sidebar from "../components/layout/sidebar/sidebar"
+import PersistentDrawerLeft from "../components/layout/sidebar/sidebar"
 import SectionA from '../components/modules/registration/sectionA'
+import SectionB from '../components/modules/registration/sectionB'
+import ContentBox from '../components/common-components/content_box'
+import RegistrationComponent from '../components/modules/registration'
 
 const Test: NextPage = () => {
   return (
     <div className={styles.container}>
 
-      {/* <Sidebar /> */}
-      <SectionA />
+      {/* <PersistentDrawerLeft /> */}
+      <h1>&nbsp;</h1>
+      {/* <SectionA /> */}
+      {/* <ContentBox backButton={() => {console.log("backButton")}} nextButton={() => {console.log("nextButton")}}>
+        <h1>hahahahaaa</h1>
+      </ContentBox> */}
+      <RegistrationComponent />
+      <h1>&nbsp;</h1>
 
       {/* <PaginationButtons page={2} count={10} countPagesShow={5} showLastButton showNearButton /> */}
 
