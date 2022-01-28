@@ -3,7 +3,7 @@ import StepUI from "../components/common-components/stepper";
 import React, { useEffect, useState } from "react";
 
 import UploadFile from "../components/common-components/uploadfile";
-import TitleUpload from "../components/modules/registration/common/title_upload";
+import TitleUpload from "../components/modules/registration/common/titleUpload";
 import Footer from "../components/layout/footer";
 import ButtonUI from "../components/common-components/button";
 
@@ -32,21 +32,21 @@ const Home: NextPage = () => {
         size="large"
         padding="15px"
         onClick={testFunction}
-        boderRadius="20px"
+        boderRadius="10px"
       />
       <ButtonUI
         name="search"
         size="large"
         padding="15px"
         onClick={testFunction}
-        boderRadius="20px"
+        boderRadius="10px"
       />
       <ButtonUI
         name="back"
         size="large"
         padding="15px"
         onClick={testFunction}
-        boderRadius="20px"
+        boderRadius="5px"
       />
     </div>
   );
