@@ -7,6 +7,7 @@ import TitleUpload from "../components/modules/registration/common/titleUpload";
 import Footer from "../components/layout/footer";
 import ButtonUI from "../components/common-components/button";
 import PersistentDrawerLeft from "../components/layout/sidebar/sidebar";
+import AttachMents from "../components/modules/registration/attachments";
 const Home: NextPage = () => {
   const [state, setState] = useState("");
   useEffect(() => {
@@ -24,31 +25,12 @@ const Home: NextPage = () => {
           setState(e.target.value)
         }
       />
-      <TitleUpload content="1. title dsadsadasdasdasds" />
-      <TitleUpload content="Section A" color="red" fontWeight="bold" />
-      <Footer content="@coppyright by KienNT76" />
-      <ButtonUI
-        name="next"
-        size="large"
-        padding="15px"
-        onClick={testFunction}
-        boderRadius="10px"
+      <AttachMents
+        title="1. Company's last signed audited fanacial statement"
+        onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
+          setState(e.target.value)
+        }
       />
-      <ButtonUI
-        name="search"
-        size="large"
-        padding="15px"
-        onClick={testFunction}
-        boderRadius="10px"
-      />
-      <ButtonUI
-        name="back"
-        size="large"
-        padding="15px"
-        onClick={testFunction}
-        boderRadius="5px"
-      />
-      <PersistentDrawerLeft/>
     </div>
   );
 };
