@@ -8,6 +8,7 @@ import Footer from "../components/layout/footer";
 import ButtonUI from "../components/common-components/button";
 import PersistentDrawerLeft from "../components/layout/sidebar/sidebar";
 import AttachMents from "../components/modules/registration/attachments";
+import Submission from "../components/modules/registration/submission";
 const Home: NextPage = () => {
   const [state, setState] = useState("");
   useEffect(() => {
@@ -20,7 +21,8 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      <UploadFile
+      <AttachMents
+        title="1. Company's last signed audited fanacial statement"
         onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
           setState(e.target.value)
         }
@@ -31,6 +33,7 @@ const Home: NextPage = () => {
           setState(e.target.value)
         }
       />
+      <Submission onClickBack={testFunction} onClickNext={testFunction} />
     </div>
   );
 };
