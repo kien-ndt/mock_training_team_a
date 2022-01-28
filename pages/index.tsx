@@ -3,10 +3,12 @@ import StepUI from "../components/common-components/stepper";
 import React, { useEffect, useState } from "react";
 
 import UploadFile from "../components/common-components/uploadfile";
-import TitleUpload from "../components/modules/registration/common/title_upload";
+import TitleUpload from "../components/modules/registration/common/titleUpload";
 import Footer from "../components/layout/footer";
 import ButtonUI from "../components/common-components/button";
 import PersistentDrawerLeft from "../components/layout/sidebar/sidebar";
+import AttachMents from "../components/modules/registration/attachments";
+import Submission from "../components/modules/registration/submission";
 const Home: NextPage = () => {
   const [state, setState] = useState("");
   useEffect(() => {
@@ -19,36 +21,19 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      <UploadFile
+      <AttachMents
+        title="1. Company's last signed audited fanacial statement"
         onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
           setState(e.target.value)
         }
       />
-      <TitleUpload content="1. title dsadsadasdasdasds" />
-      <TitleUpload content="Section A" color="red" fontWeight="bold" />
-      <Footer content="@coppyright by KienNT76" />
-      <ButtonUI
-        name="next"
-        size="large"
-        padding="15px"
-        onClick={testFunction}
-        boderRadius="20px"
+      <AttachMents
+        title="1. Company's last signed audited fanacial statement"
+        onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
+          setState(e.target.value)
+        }
       />
-      <ButtonUI
-        name="search"
-        size="large"
-        padding="15px"
-        onClick={testFunction}
-        boderRadius="20px"
-      />
-      <ButtonUI
-        name="back"
-        size="large"
-        padding="15px"
-        onClick={testFunction}
-        boderRadius="20px"
-      />
-      <PersistentDrawerLeft/>
+      <Submission onClickBack={testFunction} onClickNext={testFunction} />
     </div>
   );
 };
