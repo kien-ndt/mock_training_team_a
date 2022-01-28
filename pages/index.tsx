@@ -8,7 +8,7 @@ import Footer from "../components/layout/footer";
 import ButtonUI from "../components/common-components/button";
 import PersistentDrawerLeft from "../components/layout/sidebar/sidebar";
 import AttachMents from "../components/modules/registration/attachments";
-import Submission from "../components/modules/registration/submission";
+import Submission from "../components/layout/content/submission";
 const Home: NextPage = () => {
   const [state, setState] = useState("");
   useEffect(() => {
