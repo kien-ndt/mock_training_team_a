@@ -6,20 +6,16 @@ import * as React from 'react';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Styles from './selectbox.module.css';
-
-
-type optionValueType = {
-    label: string,
-}
+import {optionValueTypeSelectBox} from '../custom-type'
 
 type propsType = {
     name?: string
     placeholder?: string
-    value?: optionValueType | undefined
+    value?: optionValueTypeSelectBox | undefined
     /**
      * array of choices, compulsory property: label
      */
-    options?: Array<optionValueType>
+    options?: Array<optionValueTypeSelectBox>
     readOnly?: boolean
     fullWidth?: boolean
     style?: React.CSSProperties
@@ -27,7 +23,7 @@ type propsType = {
     onChange?: (params: any) => void
 }
 
- function SelectBoxCustom(props: propsType) {
+ const SelectBoxCustom = React.forwardRef((props: propsType, ref: any) => {
 
     const {name, placeholder, value, options, readOnly, onChange, itemStyle, style, fullWidth} = props
 
@@ -46,8 +42,9 @@ type propsType = {
         <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
+            ref={ref}
             name={name?name:""}
-            value={''}
+            value={value?value:""}
             onChange={onChange?onChange:()=>{return}}
             className={Styles["select-box-mock"]}
             style={elementStyle}
@@ -81,5 +78,5 @@ type propsType = {
         </>
     );
  }
- 
+ )
 export default SelectBoxCustom

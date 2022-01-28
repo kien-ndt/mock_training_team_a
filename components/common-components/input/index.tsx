@@ -1,7 +1,7 @@
 /**
  * textfield
  */
-
+import React from 'react';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import Styles from "./input.module.css"
 
@@ -29,7 +29,7 @@ type propsType = {
     style?:React.CSSProperties
     onChange?: (params: any) => void
 }
-function TextFieldCustom(props: propsType){
+const TextFieldCustom = React.forwardRef((props: propsType, ref: any) => {
 
     const {name, placeholder, value, readOnly, onChange, fullWidth, style} = props
 
@@ -42,6 +42,7 @@ function TextFieldCustom(props: propsType){
     return(
         <>
             <OutlinedInput
+                ref={ref}
                 id="outlined-weight"
                 name={name?name:"input-name"}
                 fullWidth={fullWidth?fullWidth:false}
@@ -56,6 +57,6 @@ function TextFieldCustom(props: propsType){
             />
         </>
     )
-}
+})
 
 export default TextFieldCustom
