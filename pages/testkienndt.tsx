@@ -6,13 +6,17 @@ import TextFieldCustom from '../components/common-components/input'
 import SelectBoxCustom from '../components/common-components/selectbox'
 import LabelForm from '../components/modules/registration/common/labelForm'
 import PaginationButtons from '../components/common-components/pagination'
+import Sidebar from "../components/layout/sidebar/sidebar"
+import SectionA from '../components/modules/registration/sectionA'
 
 const Test: NextPage = () => {
   return (
     <div className={styles.container}>
-      <h1>aflsaflasdfklj</h1>
 
-      <PaginationButtons page={2} count={10} countPagesShow={5} showLastButton showNearButton />
+      {/* <Sidebar /> */}
+      <SectionA />
+
+      {/* <PaginationButtons page={2} count={10} countPagesShow={5} showLastButton showNearButton /> */}
 
 
       {/* <SelectBoxCustom options={top100Films} value={top100Films[0]} placeholder='123123123' fullWidth/>

@@ -1,0 +1,36 @@
+.container {
+    padding: 3px;
+    box-sizing: border-box;
+    height: 2.5rem;
+}
+.text {
+    padding: 5px 0 5px 0;
+    margin-left: 0.8rem;
+}
+
+.icon {
+    min-width: fit-content;
+}
+
+.lv0 {
+    font-size: 1rem;
+    font-weight: bold ;
+}
+
+.lv1 {
+    font-size: 0.9rem;
+}
+
+.container.lv0 {
+    background-color: rgb(233, 227, 227);
+    border-right: 5px solid rgb(0, 0, 0);
+}
+
+
+.container.lv1 {
+    padding-left: 1rem;
+}
+
+.icon.lv1 {
+    stroke-width: 2;
+}

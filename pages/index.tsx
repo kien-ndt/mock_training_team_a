@@ -6,7 +6,7 @@ import UploadFile from "../components/common-components/uploadfile";
 import TitleUpload from "../components/modules/registration/common/titleUpload";
 import Footer from "../components/layout/footer";
 import ButtonUI from "../components/common-components/button";
-
+import PersistentDrawerLeft from "../components/layout/sidebar/sidebar";
 const Home: NextPage = () => {
   const [state, setState] = useState("");
   useEffect(() => {
@@ -48,6 +48,7 @@ const Home: NextPage = () => {
         onClick={testFunction}
         boderRadius="5px"
       />
+      <PersistentDrawerLeft/>
     </div>
   );
 };
