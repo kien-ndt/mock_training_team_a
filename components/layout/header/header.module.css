@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    min-height: 3rem;
+    background-color:red;
+    justify-content: space-between;
+    padding-right: 2rem;
+    box-sizing: border-box;
+    position: fixed;
+    padding-left: 3rem;
+}

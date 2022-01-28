@@ -8,6 +8,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import LogoutIcon from '@mui/icons-material/Logout';
 import TuneIcon from '@mui/icons-material/Tune';
+import BottomAppBar from './DropDownList';
+import { white } from 'material-ui/styles/colors';
 
 
 type Props = {
@@ -19,29 +21,23 @@ type Props = {
 }
 
 
-// const IconButtons: React.FC<Props> =({acc, size}) => (
-//       <Stack direction="row" spacing={1}>
-//         <IconButton aria-label="delete" size ={size}>
-//          {<acc/>}
-//         </IconButton>
-        
-//       </Stack>
-// );
+
 export default function IconButtons() {
     return (
       <Stack direction="row" spacing={1}>
-        <IconButton >
+        <IconButton style={{paddingTop: 0, paddingBottom: 0}}>
           <SearchIcon />
         </IconButton>
-        <IconButton >
+        <IconButton style={{paddingTop: 0, paddingBottom: 0}}>
           <TuneIcon/>
         </IconButton>
-        <IconButton >
+        <IconButton style={{paddingTop: 0, paddingBottom: 0}}>
           <NotificationsNoneIcon />
         </IconButton>
-        <IconButton >
-          <LogoutIcon />
+        <BottomAppBar/>
+        <IconButton style={{paddingTop: 0, paddingBottom: 0}}>
+          <LogoutIcon/>
         </IconButton>
       </Stack>
     );
-    } 
+} 
