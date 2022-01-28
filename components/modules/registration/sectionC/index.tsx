@@ -1,13 +1,16 @@
 import RegistrationForm from "../common/form"
 import { idFormSectionC } from '../common/constants'
 import { formFields } from './formFields'
-import axios from 'axios';
 import { useEffect, useState } from "react";
 import {optionValueTypeSelectBox} from "../../../common-components/custom-type"
 
-const fetcher = (url: string) => axios.get(url).then(res => res.data)
 
-function SectionC() {
+type inputProps = {
+    submitForm?: (data: any) => void
+    formId: string
+}
+
+function SectionC(props: inputProps) {
     const submitForm = (data: any) => {
         console.log(data)
     }
@@ -17,10 +20,9 @@ function SectionC() {
         <>
             <RegistrationForm 
                 fields={formFields()}
-                submitForm={submitForm}
-                formId={idFormSectionC}
+                submitForm={props.submitForm?props.submitForm:(data)=>{console.log(data)}}
+                formId={props.formId}
             />
-            <button type="submit" form={idFormSectionC}>123123</button>
         </>
     )
 }

@@ -9,14 +9,16 @@ import {optionValueTypeSelectBox} from "../../../common-components/custom-type"
 
 const fetcher = (url: string) => axios.get(url).then(res => res.data)
 
-function SectionA() {
+
+type inputProps = {
+    submitForm?: (data: any) => void
+    formId: string
+}
+function SectionA(props: inputProps) {
     const listCountryUrl = "https://countriesnow.space/api/v0.1/countries/positions"
 
     const { data, error } = useSWR<countryApiResponse>(listCountryUrl, fetcher, {refreshInterval: 24*60*60*1000})
     const [countryOptions, setCountryOptions] = useState<Array<optionValueTypeSelectBox>>([])
-    const submitForm = (data: any) => {
-        console.log(data)
-    }
 
     useEffect(() => {
         if (data && data.data && data.data.length > 0) {
@@ -36,10 +38,9 @@ function SectionA() {
         <>
             <RegistrationForm 
                 fields={formFields(countryOptions)}
-                submitForm={submitForm}
-                formId={idFormSectionA}
+                submitForm={props.submitForm?props.submitForm:(data)=>{console.log(data)}}
+                formId={props.formId}
             />
-            <button type="submit" form={idFormSectionA}>123123</button>
         </>
     )
 }

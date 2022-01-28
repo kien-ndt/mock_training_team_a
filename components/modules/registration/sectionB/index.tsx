@@ -7,20 +7,18 @@ import {optionValueTypeSelectBox} from "../../../common-components/custom-type"
 
 const fetcher = (url: string) => axios.get(url).then(res => res.data)
 
-function SectionB() {
-    const submitForm = (data: any) => {
-        console.log(data)
-    }
-
-
+type inputProps = {
+    submitForm?: (data: any) => void
+    formId: string
+}
+function SectionB(props: inputProps) {
     return(
         <>
             <RegistrationForm 
                 fields={formFields()}
-                submitForm={submitForm}
-                formId={idFormSectionB}
+                submitForm={props.submitForm?props.submitForm:(data)=>{console.log(data)}}
+                formId={props.formId}
             />
-            <button type="submit" form={idFormSectionB}>123123</button>
         </>
     )
 }

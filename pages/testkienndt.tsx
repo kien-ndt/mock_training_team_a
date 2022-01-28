@@ -9,6 +9,8 @@ import PaginationButtons from '../components/common-components/pagination'
 import PersistentDrawerLeft from "../components/layout/sidebar/sidebar"
 import SectionA from '../components/modules/registration/sectionA'
 import SectionB from '../components/modules/registration/sectionB'
+import ContentBox from '../components/common-components/content_box'
+import RegistrationComponent from '../components/modules/registration'
 
 const Test: NextPage = () => {
   return (
@@ -17,7 +19,11 @@ const Test: NextPage = () => {
       {/* <PersistentDrawerLeft /> */}
       <h1>&nbsp;</h1>
       {/* <SectionA /> */}
-      <SectionB />
+      {/* <ContentBox backButton={() => {console.log("backButton")}} nextButton={() => {console.log("nextButton")}}>
+        <h1>hahahahaaa</h1>
+      </ContentBox> */}
+      <RegistrationComponent />
+      <h1>&nbsp;</h1>
 
       {/* <PaginationButtons page={2} count={10} countPagesShow={5} showLastButton showNearButton /> */}
 

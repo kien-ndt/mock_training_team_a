@@ -14,7 +14,7 @@ export const formFields = (): Array<formInput> => {
         },
         {
             label: "Name of Company's CEO or equivalent",
-            property: "nameCompanyCEO",
+            property: "nameCompanyCEO1",
             type: "input",
             placeholder: "Name of Company's CEO or equivalent"
         },
