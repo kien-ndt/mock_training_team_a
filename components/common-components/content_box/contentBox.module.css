@@ -1,6 +1,6 @@
 .content-box-container {
     display: flex;
-    width: 700px;
+    width: 100%;
     min-height: 550px;
     background-color: white;
     flex-direction: column;

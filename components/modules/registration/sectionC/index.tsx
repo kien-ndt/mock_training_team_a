@@ -1,8 +1,7 @@
 import RegistrationForm from "../common/form"
-import { idFormSectionC } from '../common/constants'
 import { formFields } from './formFields'
-import { useEffect, useState } from "react";
-import {optionValueTypeSelectBox} from "../../../common-components/custom-type"
+import { useContext, useEffect, useState } from "react";
+import { MainContext } from "../../../../context/MainContext";
 
 
 type inputProps = {
@@ -15,6 +14,10 @@ function SectionC(props: inputProps) {
         console.log(data)
     }
 
+    const { updateContentComponentId } = useContext(MainContext)
+    useEffect(() => {
+        updateContentComponentId("sectionC")
+    }, [])
 
     return(
         <>

@@ -8,8 +8,13 @@
     margin-left: 0.8rem;
 }
 
+.text.active {
+    color: red
+}
+
 .icon {
     min-width: fit-content;
+    margin-right: 1rem;
 }
 
 .lv0 {
