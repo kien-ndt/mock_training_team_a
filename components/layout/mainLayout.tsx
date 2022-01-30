@@ -27,6 +27,7 @@
  import InboxIcon from '@mui/icons-material/MoveToInbox';
  import MailIcon from '@mui/icons-material/Mail';
  import { Sidebar } from './sidebar/sidebar';
+ import Styles from "./mainLayout.module.css";
 //  import Image from 'next/image'
  import { MainContextProvider } from '../../context/MainContext'
  
@@ -123,14 +124,18 @@ import ButtonAppBar from './header/header';
                 width={open?`calc(100% - ${drawerWidth}px)`:"100%"}
             />
        </AppBar>
-       <Drawer
+       <Drawer 
          sx={{
            width: drawerWidth,
            flexShrink: 0,
            '& .MuiDrawer-paper': {
+             overflowY: "scroll",
              width: drawerWidth,
              boxSizing: 'border-box',
            },
+         }}
+         PaperProps={{
+           className: Styles["sidebar-area"]
          }}
          variant="persistent"
          anchor="left"
