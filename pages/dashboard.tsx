@@ -3,6 +3,6 @@
  */
 import PersistentDrawerLeft from "../components/layout/mainLayout";
 function Dashboard(){
-    return <PersistentDrawerLeft><h1>dashboard</h1></PersistentDrawerLeft>
+    return <h1>dashboard</h1>
 }
 export default Dashboard

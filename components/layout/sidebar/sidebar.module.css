@@ -9,7 +9,8 @@
 }
 
 .text.active {
-    color: red
+    font-weight: bold;
+    /* color: red */
 }
 
 .icon {

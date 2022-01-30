@@ -180,6 +180,19 @@ export function Sidebar() {
       return false;
     }
 
+    useEffect(() => {
+      if (contentComponentId) {
+        let openStatus: any = {...open}
+        const listComponentId = contentComponentId.split('/');
+        let idSplit: string = "";
+        for (let i=0; i<listComponentId.length; i++) {
+          idSplit = idSplit + (i!==0?"/":"") + listComponentId[i]
+          openStatus[idSplit] = true
+        }
+        setOpen(openStatus)
+      }
+    }, [contentComponentId])
+
     /**
      * container: one row contain icon - label - icon
      * icon: style for all lv icon
@@ -209,7 +222,7 @@ export function Sidebar() {
                 }
                 res.push(
                     <ListItemButton 
-                        onClick = {() => {handleClickOpen(); if (element.onClick) element.onClick()}} 
+                        onClick = {() => {handleClickOpen(); if(element.onClick)element.onClick()}} 
                         key={element.id + index}
                         className={Styles["container"] + " " + Styles[String("lv"+depth)]}
                     >

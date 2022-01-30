@@ -27,7 +27,7 @@
  import InboxIcon from '@mui/icons-material/MoveToInbox';
  import MailIcon from '@mui/icons-material/Mail';
  import { Sidebar } from './sidebar/sidebar';
- import Image from 'next/image'
+//  import Image from 'next/image'
  import { MainContextProvider } from '../../context/MainContext'
  
 import ButtonAppBar from './header/header';
@@ -137,12 +137,12 @@ import ButtonAppBar from './header/header';
          open={open}
        >
          <DrawerHeader>
-         <Image
+         {/* <Image
       src="/public/logo.PNG"
       alt="Picture of the author"
       width={500}
       height={300}
-    />
+    /> */}
            <IconButton onClick={handleDrawerClose}>
              {theme.direction === 'ltr' ? <MenuIcon /> : <MenuIcon />}
            </IconButton>
@@ -175,4 +175,4 @@ import ButtonAppBar from './header/header';
    );
  }
  
-export {}
+// export {}

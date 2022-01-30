@@ -40,13 +40,13 @@ export const listSidebarItem: Array<inputSidebarItem> = [
         icon: <HomeOutlinedIcon />,
         label: "Dashboard",
         id: listSidebarId.dashboard,
-        onClick: () => {Router.push("/dashboard")},
         childComponents: [
             {
                 icon: <GridViewIcon/>,
                 label: "Perimeter Protection",
                 endIcon: <ChevronRightIcon />,
-                id: listSidebarId.perimeterProtection
+                id: listSidebarId.perimeterProtection,
+                onClick: () => {Router.push("/dashboard")},
             },
             {
                 icon: <GridViewIcon />,
@@ -79,15 +79,16 @@ export const listSidebarItem: Array<inputSidebarItem> = [
         icon: <AppRegistrationIcon />,
         label: "Registration",
         id: listSidebarId.registration,        
-        onClick: () => {Router.push("/registration")},
         childComponents: [
             {
                 label: "Section A",
-                id: listSidebarId.sectionA
+                id: listSidebarId.sectionA,
+                onClick: () => {Router.push("/registration")},
             },
             {
                 label: "Section B",
-                id: listSidebarId.sectionB
+                id: listSidebarId.sectionB,
+                onClick: () => {Router.push("/registration")},
             },
             {
                 label: "Section C",
