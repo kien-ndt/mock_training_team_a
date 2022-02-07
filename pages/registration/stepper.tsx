@@ -45,8 +45,7 @@ const Stepper: React.FC<Props> = ({ step }) => {
         // Step 1
       }
       {step == "1" && (
-        <Item>
-          <Box sx={{ flexGrow: 1 }}>
+        <>
             <Grid container spacing={2}>
               <Grid item xs={1.333} md={1.333}>
                 <StepUI
@@ -104,35 +103,9 @@ const Stepper: React.FC<Props> = ({ step }) => {
                   color="gray"
                   content="Submission"
                 />
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                md={12}
-                sx={{
-                  marginLeft: "3%",
-                  "& h4": {
-                    color: "gray",
-                  },
-                }}
-              >
-                <h4>Step 1/5</h4>
-                <h2>COMPANY INFORMATION</h2>
-              </Grid>
-
-              <Grid
-                item
-                xs={12}
-                md={12}
-                sx={{
-                  marginLeft: "3%",
-                }}
-              >
-                <h2>Content Step 1 Here</h2>
-              </Grid>
+              </Grid>              
             </Grid>
-          </Box>
-        </Item>
+          </>
       )}
       {
         // Attachments

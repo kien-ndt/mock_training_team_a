@@ -8,7 +8,7 @@ import SectionB from './sectionB'
 import SectionC from './sectionC'
 import {idFormSectionA, idFormSectionB, idFormSectionC} from './common/constants'
 import Stepper from '../../../pages/registration/stepper'
-
+import Styles from './registration.module.css'
 
 /**
  * step: 1-5
@@ -23,6 +23,8 @@ function RegistrationComponent(){
     const [state, setState] = useState<stateType>({
         step: 0
     })
+
+    const totalStep = 5
 
     /**
      * custom action when click next button
@@ -50,7 +52,13 @@ function RegistrationComponent(){
             submitData: newSubmitData
         })
     }
-    
+    const listRegistrationComponentsName: Array<string> = [
+        "company information",
+        "section b",
+        "section c",
+        "upload the following documents",
+        "submission"
+    ]
     /**
      * List component according steps in registration
      */
@@ -80,8 +88,10 @@ function RegistrationComponent(){
         <ContentBox 
             backButton={{onClick: () => backClick(state.step)}}
             nextButton={{type: "submit", form: getRegistrationFormId(state.step)}}
-        >
-             <Stepper step="4" />
+        >            
+            <Stepper step={String(state.step+1)} />
+            <h4 className={Styles["registration-note"]}>Step {state.step+1}/{totalStep}</h4>            
+            <h2 className={Styles["registration-title"]}>{listRegistrationComponentsName[state.step]}</h2>
             {getRegistrationComponents(state.step)}
         </ContentBox>
     )
