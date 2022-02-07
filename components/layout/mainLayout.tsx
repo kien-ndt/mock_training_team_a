@@ -32,6 +32,7 @@
  import { MainContextProvider } from '../../context/MainContext'
  
 import ButtonAppBar from './header/header';
+import MainContent from './content';
  
  const drawerWidth = 300;
  
@@ -75,12 +76,16 @@ import ButtonAppBar from './header/header';
    display: 'flex',
    alignItems: 'center',
    padding: theme.spacing(0, 1),
+   paddingBottom: 0,
+   paddingTop: 0,
+   boxSizing: "border-box",
    // necessary for content to be below app bar
    ...theme.mixins.toolbar,
+   height: "64px",
    justifyContent: 'flex-end',
  }));
  
- export default function PersistentDrawerLeft(props: {children: any}) {
+ export default function PersistentDrawerLeft(props: {children: any, titleContent?:string}) {
    const theme = useTheme();
    const [open, setOpen] = React.useState(false);
  
@@ -96,7 +101,7 @@ import ButtonAppBar from './header/header';
     <MainContextProvider>
      <Box sx={{ display: 'flex' }}>
        <CssBaseline />
-       <AppBar position="fixed" open={open}>
+       <AppBar position="fixed" open={open} >
            {/* <IconButton
              color="inherit"
              aria-label="open drawer"
@@ -154,8 +159,8 @@ import ButtonAppBar from './header/header';
          </DrawerHeader>
          <Divider />         
             <Sidebar />
-         <Divider />
-         <List>
+         {/* <Divider /> */}
+         {/* <List>
            {['All mail', 'Trash', 'Spam'].map((text, index) => (
              <ListItem button key={text}>
                <ListItemIcon>
@@ -164,16 +169,16 @@ import ButtonAppBar from './header/header';
                <ListItemText primary={text} />
              </ListItem>
            ))}
-         </List>
+         </List> */}
        </Drawer>
 
 
        
-       <Main open={open}>
-         <DrawerHeader />
-         <div>
+       <Main open={open} style={{padding: 0}}>
+          <DrawerHeader />
+         <MainContent title={props.titleContent?props.titleContent:"."}>           
            {props.children}
-         </div>
+         </MainContent>
        </Main>
      </Box>
      </MainContextProvider>

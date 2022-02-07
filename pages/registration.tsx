@@ -9,4 +9,6 @@ function Registration() {
             <RegistrationComponent />
     )
 }
+
+Registration.titleContent="Registration"
 export default Registration
