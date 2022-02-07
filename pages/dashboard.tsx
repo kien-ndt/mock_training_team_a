@@ -3,13 +3,13 @@
  */
 import PersistentDrawerLeft from "../components/layout/mainLayout";
 import DashboardComponent from "../components/modules/dashboard";
-function Dashboard(){
+function Dashboard() {
     return (
         <>
-        <DashboardComponent/>
+            <DashboardComponent />
         </>
     )
 }
 
-Dashboard.titleContent="Dashboard"
+Dashboard.titleContent = "Dashboard"
 export default Dashboard

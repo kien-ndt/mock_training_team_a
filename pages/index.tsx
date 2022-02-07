@@ -25,7 +25,7 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      
+      <Stepper step="4"/>
     </div>
   );
 };

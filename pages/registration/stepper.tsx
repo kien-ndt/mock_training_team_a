@@ -198,6 +198,271 @@ const Stepper: React.FC<Props> = ({ step }) => {
           </Box>
         </Item>
       )}
+      {
+        //step 2
+      }
+      {step == "2" && (
+        <Item>
+          <Box sx={{ flexGrow: 1 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={1.333} md={1.333}>
+                <StepUI
+                  type="icon"
+                  size="medium"
+                  content="Section A"
+                />
+              </Grid>
+              <Grid item xs={1.333} md={1.333} sx={{ marginTop: "25px" }}>
+                <Line />
+              </Grid>
+              <Grid item xs={1.333} md={1.333}>
+                <StepUI
+                  type="number"
+                  size="medium"
+                  value="2"
+                  color="red"
+                  content="Section B"
+                />
+              </Grid>
+              <Grid item xs={1.333} md={1.333} sx={{ marginTop: "25px" }}>
+                <Line />
+              </Grid>
+              <Grid item xs={1.333} md={1.333}>
+                <StepUI
+                  type="number"
+                  size="medium"
+                  value="3"
+                  color="gray"
+                  content="Section C"
+                />
+              </Grid>
+              <Grid item xs={1.333} md={1.333} sx={{ marginTop: "25px" }}>
+                <Line />
+              </Grid>
+              <Grid item xs={1.333} md={1.333}>
+                <StepUI
+                  type="number"
+                  size="medium"
+                  value="4"
+                  color="gray"
+                  content="Attachments"
+                />
+              </Grid>
+              <Grid item xs={1.333} md={1.333} sx={{ marginTop: "25px" }}>
+                <Line />
+              </Grid>
+              <Grid item xs={1.333} md={1.333}>
+                <StepUI
+                  type="number"
+                  size="medium"
+                  value="5"
+                  color="gray"
+                  content="Submission"
+                />
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                md={12}
+                sx={{
+                  marginLeft: "3%",
+                  "& h4": {
+                    color: "gray",
+                  },
+                }}
+              >
+                <h4>Step 2/5</h4>
+                <h2>COMPANY INFORMATION</h2>
+              </Grid>
+
+              <Grid
+                item
+                xs={12}
+                md={12}
+                sx={{
+                  marginLeft: "3%",
+                }}
+              >
+                <h2>Content Step 2 Here</h2>
+              </Grid>
+            </Grid>
+          </Box>
+        </Item>
+      )}
+      {
+        //step 3
+      }
+      {step == "3" && (
+        <Item>
+          <Box sx={{ flexGrow: 1 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={1.333} md={1.333}>
+                <StepUI
+                  type="icon"
+                  size="medium"
+                  content="Section A"
+                />
+              </Grid>
+              <Grid item xs={1.333} md={1.333} sx={{ marginTop: "25px" }}>
+                <Line />
+              </Grid>
+              <Grid item xs={1.333} md={1.333}>
+                <StepUI
+                  type="icon"
+                  size="medium"
+                  content="Section B"
+                />
+              </Grid>
+              <Grid item xs={1.333} md={1.333} sx={{ marginTop: "25px" }}>
+                <Line />
+              </Grid>
+              <Grid item xs={1.333} md={1.333}>
+                <StepUI
+                  type="number"
+                  size="medium"
+                  value="3"
+                  color="red"
+                  content="Section C"
+                />
+              </Grid>
+              <Grid item xs={1.333} md={1.333} sx={{ marginTop: "25px" }}>
+                <Line />
+              </Grid>
+              <Grid item xs={1.333} md={1.333}>
+                <StepUI
+                  type="number"
+                  size="medium"
+                  value="4"
+                  color="gray"
+                  content="Attachments"
+                />
+              </Grid>
+              <Grid item xs={1.333} md={1.333} sx={{ marginTop: "25px" }}>
+                <Line />
+              </Grid>
+              <Grid item xs={1.333} md={1.333}>
+                <StepUI
+                  type="number"
+                  size="medium"
+                  value="5"
+                  color="gray"
+                  content="Submission"
+                />
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                md={12}
+                sx={{
+                  marginLeft: "3%",
+                  "& h4": {
+                    color: "gray",
+                  },
+                }}
+              >
+                <h4>Step 3/5</h4>
+                <h2>COMPANY INFORMATION</h2>
+              </Grid>
+
+              <Grid
+                item
+                xs={12}
+                md={12}
+                sx={{
+                  marginLeft: "3%",
+                }}
+              >
+                <h2>Content Step 3 Here</h2>
+              </Grid>
+            </Grid>
+          </Box>
+        </Item>
+      )}
+      {
+        //step 5
+      }
+      {step == "5" && (
+        <Item>
+          <Box sx={{ flexGrow: 1 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={1.333} md={1.333}>
+                <StepUI
+                  type="icon"
+                  size="medium"
+                  content="Section A"
+                />
+              </Grid>
+              <Grid item xs={1.333} md={1.333} sx={{ marginTop: "25px" }}>
+                <Line />
+              </Grid>
+              <Grid item xs={1.333} md={1.333}>
+                <StepUI
+                  type="icon"
+                  size="medium"
+                  content="Section B"
+                />
+              </Grid>
+              <Grid item xs={1.333} md={1.333} sx={{ marginTop: "25px" }}>
+                <Line />
+              </Grid>
+              <Grid item xs={1.333} md={1.333}>
+              <StepUI
+                  type="icon"
+                  size="medium"
+                  content="Section C"
+                />
+              </Grid>
+              <Grid item xs={1.333} md={1.333} sx={{ marginTop: "25px" }}>
+                <Line />
+              </Grid>
+              <Grid item xs={1.333} md={1.333}>
+                 <StepUI
+                  type="icon"
+                  size="medium"
+                  content="Attachments"
+                />
+              </Grid>
+              <Grid item xs={1.333} md={1.333} sx={{ marginTop: "25px" }}>
+                <Line />
+              </Grid>
+              <Grid item xs={1.333} md={1.333}>
+                <StepUI
+                  type="number"
+                  size="medium"
+                  value="5"
+                  color="red"
+                  content="Submission"
+                />
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                md={12}
+                sx={{
+                  marginLeft: "3%",
+                  "& h4": {
+                    color: "gray",
+                  },
+                }}
+              >
+                <h4>Step 3/5</h4>
+                <h2>COMPANY INFORMATION</h2>
+              </Grid>
+
+              <Grid
+                item
+                xs={12}
+                md={12}
+                sx={{
+                  marginLeft: "3%",
+                }}
+              >
+                <h2>Content Step 3 Here</h2>
+              </Grid>
+            </Grid>
+          </Box>
+        </Item>
+      )}
     </>
   );
 };
