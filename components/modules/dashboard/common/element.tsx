@@ -32,14 +32,15 @@ const Element: React.FC<Props> = ({ image, content, onClick }) => {
   const container = {
     backgroundImage: `url(${image})`,
     backgroundSize: "cover",
-    width: 400,
-    height: 300,
+    width: 300,
+    height: 200,
   };
 
   // CSS of CardContent
   const contentText = {
-    width: 400,
-    height: 200,
+    width: 300,
+    height: 140,
+   
   };
 
   // CSS of CardActions
@@ -49,14 +50,15 @@ const Element: React.FC<Props> = ({ image, content, onClick }) => {
     backdropFilter: "blur(5px)",
     wordBreak: "break-all",
     justifyContent: "center",
-    width: 400,
-    height: 100,
+    width: 300,
+    height: 60,
   };
 
   // CSS of Button
   const button = {
     color: "white",
-    fontSize: "20px",
+    fontSize: "16px",
+    wordBreak: "break-word",
   };
 
   return (
@@ -66,8 +68,8 @@ const Element: React.FC<Props> = ({ image, content, onClick }) => {
         flexWrap: "wrap",
         "& > :not(style)": {
           m: 1,
-          width: 400,
-          height: 300,
+          width: 300,
+          height: 200,
         },
       }}
     >
