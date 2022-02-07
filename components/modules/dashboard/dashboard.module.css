@@ -11,6 +11,7 @@
     flex: 1;
     margin-top: 15px;
     display: flex;
+<<<<<<< HEAD
 }
 
 .searchBar {
@@ -31,3 +32,8 @@
 .searchBarStart > * {
     margin-right: 15px;
 }
+=======
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+>>>>>>> 58823d4042c93707acab440d9e5790dac054f0cc
