@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    height: 64px;
+    background-color:red;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 2rem;
+    box-sizing: border-box;
+    position: fixed;
+    padding-left: 3rem;
+    transition: width 0.5s;
+    transition: margin 0.5s;
+    transition-timing-function: ease-in;
+}

@@ -1,0 +1,15 @@
+.sidebar-area::-webkit-scrollbar {
+    width: 3px;
+  }
+  
+.sidebar-area::-webkit-scrollbar-track {
+    background: #ffffff; 
+  }
+   
+.sidebar-area::-webkit-scrollbar-thumb {
+    background: rgb(233, 231, 231); 
+  }
+  
+.sidebar-area::-webkit-scrollbar-thumb:hover {
+    background: rgb(211, 210, 210); 
+  }

@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import Collapse from '@mui/material/Collapse';
-import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import GridViewIcon from '@mui/icons-material/GridView';
 import { useState } from 'react';
 import Styles from './sidebar.module.css'
@@ -19,10 +17,16 @@ import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { ListItem } from 'material-ui';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
+import IconButton from '@mui/material/IconButton';
+import ButtonAppBar from '../header/header';
+import { listSidebarItem, inputSidebarItem } from './sidebar.item';
+import { MainContext } from '../../../context/MainContext';
 
 const drawerWidth = 240;
 
@@ -90,7 +94,7 @@ export default function PersistentDrawerLeft() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      {/* <AppBar position="fixed" open={open}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -102,9 +106,24 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            
+            Persistent drawer
           </Typography>
         </Toolbar>
+      </AppBar> */}
+       <AppBar position="fixed" open={open} >
+      <ButtonAppBar 
+        iconSidebar={          
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            sx={{ mr: 2, ...(open && { display: 'none' }) }}
+          >
+            <MenuIcon />
+          </IconButton>
+        }
+      />
       </AppBar>
       <Drawer
         sx={{
@@ -125,99 +144,54 @@ export default function PersistentDrawerLeft() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-         <h1>Abc </h1>
-         <Sidebar/>
-        <Divider />
         
+        <Divider />
+       <Sidebar/>
       </Drawer>
       <Main open={open}>
-        <DrawerHeader /> 
-               
+        <DrawerHeader />
+        
+        <Typography paragraph>
+          
+        </Typography>
       </Main>
-      <Sidebar/>
-
-      
     </Box>
   );
 }
-function Sidebar() {
+
+
+export function Sidebar() {
     const [open, setOpen] = useState<any>({});
+    const { contentComponentId } = useContext(MainContext)
 
-    /**
-     * type input convert to component
-     * icon -> first icon of row
-     * label -> label of row
-     * label2 -> other label, under label
-     * endIcon -> icon end of row
-     * childComponents -> items in dropdown
-     */
-    type inputItems = {
-        icon?: JSX.Element
-        label: string
-        label2?: string
-        endIcon?:JSX.Element
-        childComponents?: Array<inputItems>
+    const listItem: Array<inputSidebarItem> = listSidebarItem;
+
+    // const getKey = (depth: number, index: number):string => {
+    //     return String(depth) + "-"+ String(index);
+    // }
+
+    const isListItemActive = (elementId: string, contentComponentId: string, depth: number):boolean => {
+      const listComponentId = contentComponentId.split('/');
+      let idCompare: string = "";
+      for (let i=0; i<=depth; i++) {
+        idCompare = idCompare + (i!==0?"/":"") + listComponentId[i]
+      }
+      if (elementId.localeCompare(idCompare) === 0) return true
+      return false;
     }
 
-    const listItem: Array<inputItems> = [
-        {
-            icon: <HomeOutlinedIcon style={{fontWeight: 900}} sx={{fontWeight: 900}} />,
-            label: "Dashboard",
-            childComponents: [
-                {
-                    icon: <GridViewIcon/>,
-                    label: "Perimeter Protection",
-                    endIcon: <ChevronRightIcon />
-                },
-                {
-                    icon: <GridViewIcon />,
-                    label: "Asset Protection",
-                    endIcon: <ChevronRightIcon />
-                },
-                {
-                    icon: <GridViewIcon />,
-                    label: "Asset Control",
-                    label2: "(Smart Locks)",
-                    endIcon: <ChevronRightIcon />
-                },
-                {
-                    icon: <GridViewIcon />,
-                    label: "Perimeter Protection",
-                    endIcon: <ChevronRightIcon />
-                },
-                {
-                    icon: <GridViewIcon />,
-                    label: "Perimeter Protection",
-                    endIcon: <ChevronRightIcon />
-                },
-            ]
-        },
-        {
-            icon: <AppRegistrationIcon />,
-            label: "Registration",
-            childComponents: [
-                {
-                    label: "Section A"
-                },
-                {
-                    label: "Section B"
-                },
-                {
-                    label: "Section C"
-                },
-                {
-                    label: "Attachments"
-                },
-                {
-                    label: "Submission"
-                },
-            ]
+    useEffect(() => {
+      if (contentComponentId) {
+        let openStatus: any = {...open}
+        const listComponentId = contentComponentId.split('/');
+        let idSplit: string = "";
+        for (let i=0; i<listComponentId.length; i++) {
+          idSplit = idSplit + (i!==0?"/":"") + listComponentId[i]
+          openStatus[idSplit] = true
         }
-    ]
-
-    const getKey = (depth: number, index: number):string => {
-        return String(depth) + "-"+ String(index);
-    }
+        setOpen(openStatus)
+      }
+    }, [contentComponentId])
 
     /**
      * container: one row contain icon - label - icon
@@ -226,7 +200,7 @@ function Sidebar() {
      * lv+number: style for special lv
      * go to childComponent -> increase depth and wrap in Collapse, call recursive generateListComponent
      */
-    const generateListComponent = (list: Array<inputItems>, depth: number = 0): JSX.Element => {
+    const generateListComponent = (list: Array<inputSidebarItem>, depth: number = 0): JSX.Element => {
         let res: Array<JSX.Element> = [];
 
         if (list && list.length > 0) {
@@ -237,19 +211,19 @@ function Sidebar() {
                 if (element.childComponents && element.childComponents.length >0){
                     handleClickOpen = () => {
                         let newStateOpen = {...open};
-                        if (newStateOpen[getKey(depth, index)] === false || newStateOpen[getKey(depth, index)] === true) {
-                            newStateOpen[getKey(depth, index)] = !newStateOpen[getKey(depth, index)]
+                        if (newStateOpen[element.id] === false || newStateOpen[element.id] === true) {
+                            newStateOpen[element.id] = !newStateOpen[element.id]
                         }
                         else {
-                            newStateOpen[getKey(depth, index)] = true
+                            newStateOpen[element.id] = true
                         }
                         setOpen(newStateOpen)
                     }
                 }
                 res.push(
                     <ListItemButton 
-                        onClick = {() => handleClickOpen()} 
-                        key={getKey(depth, index)}
+                        onClick = {() => {handleClickOpen(); if(element.onClick)element.onClick()}} 
+                        key={element.id + index}
                         className={Styles["container"] + " " + Styles[String("lv"+depth)]}
                     >
                     {
@@ -274,7 +248,13 @@ function Sidebar() {
                     {
                         <ListItemText 
                             // className={Styles["text"] + " " + Styles[String("lv"+depth)]}
-                            primaryTypographyProps={{className: Styles["text"] + " " + Styles[String("lv"+depth)]}}
+                            primaryTypographyProps={
+                              {
+                                className: isListItemActive(element.id, contentComponentId, depth)?
+                                            Styles["text"] + " " + Styles[String("lv"+depth)]  + " " + Styles["active"]:
+                                            Styles["text"] + " " + Styles[String("lv"+depth)]
+                              }
+                            }
                         >                            
                             <div>{element.label}</div>
                             {element.label2 && <div>{element.label2}</div>}
@@ -293,7 +273,7 @@ function Sidebar() {
                 )
                 if (element.childComponents && element.childComponents.length >0){    
                     res.push(                
-                    <Collapse in={typeof open[getKey(depth, index)] === "boolean"?open[getKey(depth, index)]:false} timeout={500} unmountOnExit={undefined} key={getKey(depth, index)+"collape"}>
+                    <Collapse in={typeof open[element.id] === "boolean"?open[element.id]:false} timeout={500} unmountOnExit={undefined} key={element.id+" collape" + index}>
                         {generateListComponent(element.childComponents, depth+1)}
                     </Collapse>
                     )
@@ -314,7 +294,7 @@ function Sidebar() {
         // sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
         component="nav"
         disablePadding
-        style={{maxWidth: 300}}
+        style={{maxWidth: 400}}
             
         subheader={
             <ListSubheader component="div" id="nested-list-subheader">

@@ -4,19 +4,28 @@ import { formFields } from './formFields'
 import { countryApiResponse } from '../common/commonType'
 import axios from 'axios';
 import useSWR from 'swr'
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {optionValueTypeSelectBox} from "../../../common-components/custom-type"
+import { MainContext } from "../../../../context/MainContext";
 
 const fetcher = (url: string) => axios.get(url).then(res => res.data)
 
-function SectionA() {
+
+type inputProps = {
+    submitForm?: (data: any) => void
+    formId: string
+}
+function SectionA(props: inputProps) {
+
+    const { updateContentComponentId } = useContext(MainContext)
+    useEffect(() => {
+        updateContentComponentId("sectionA")
+    }, [])
+
     const listCountryUrl = "https://countriesnow.space/api/v0.1/countries/positions"
 
     const { data, error } = useSWR<countryApiResponse>(listCountryUrl, fetcher, {refreshInterval: 24*60*60*1000})
     const [countryOptions, setCountryOptions] = useState<Array<optionValueTypeSelectBox>>([])
-    const submitForm = (data: any) => {
-        console.log(data)
-    }
 
     useEffect(() => {
         if (data && data.data && data.data.length > 0) {
@@ -36,10 +45,9 @@ function SectionA() {
         <>
             <RegistrationForm 
                 fields={formFields(countryOptions)}
-                submitForm={submitForm}
-                formId={idFormSectionA}
+                submitForm={props.submitForm?props.submitForm:(data)=>{console.log(data)}}
+                formId={props.formId}
             />
-            <button type="submit" form={idFormSectionA}>123123</button>
         </>
     )
 }

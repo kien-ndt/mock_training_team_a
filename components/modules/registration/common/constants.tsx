@@ -1,2 +1,4 @@
 const idFormSectionA = "sectiona-form"
-export {idFormSectionA}
+const idFormSectionB = "sectionb-form"
+const idFormSectionC = "sectionc-form"
+export {idFormSectionA, idFormSectionB, idFormSectionC}

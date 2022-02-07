@@ -54,7 +54,9 @@ type propsType = {
             SelectDisplayProps={{
                 className: Styles["select-box-mock-contain"]
             }}
-            
+            MenuProps={{
+                disableScrollLock: true,
+            }}
             renderValue={(selected) => {
                 if (selected === '') {
                   return <div style={{color: "#aaa"}}>{placeholder}</div>;

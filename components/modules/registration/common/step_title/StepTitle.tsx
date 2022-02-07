@@ -1,6 +1,6 @@
-import { Wrapper } from './StepTitle.style'
-import Title from './Title';
-import Step from './Step';
+import { Wrapper } from './stepTitle.style'
+import Title from './title';
+import Step from './step';
 
 export type Props = {
     title: string

@@ -40,10 +40,10 @@ function RegistrationForm(props: propsType) {
                 fields && fields.length > 0 &&
                 fields.map((item, index) => (
                     <React.Fragment key={"controlel"+index}>                    
-                        <Grid item xs={4}>
+                        <Grid item xs={4} alignContent="center" display="flex" alignItems="center">
                             <LabelForm label={item.label} style={item.labelStyle}/>
                         </Grid>
-                        <Grid item xs={8}>
+                        <Grid item xs={8} alignContent="center" display="flex" alignItems="center">
                             <Controller
                                 name={item.property}
                                 rules={item.rules}
