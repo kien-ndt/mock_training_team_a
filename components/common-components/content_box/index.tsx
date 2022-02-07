@@ -10,8 +10,10 @@ import ButtonUI from "../button/index"
 type inputProps = {
     children?: any
     listButtons?: Array<JSX.Element>
-    nextButton?: React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
-    backButton?: React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
+    // nextButton?: React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
+    // backButton?: React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
+    nextButton?: any
+    backButton?: any
 }
 
 function ContentBox(props: inputProps){
@@ -26,11 +28,29 @@ function ContentBox(props: inputProps){
             <div className={Styles["content-box-footer"]}>
                 {
                     backButton &&
-                    <button {...backButton}>back</button>
+                    // <button {...backButton}>back</button>
+                    <ButtonUI 
+                        name="back"
+                        size="small"
+                        padding="15px"
+                        boderRadius="20px"
+                        type={backButton.type}
+                        form={backButton.form}
+                        onClick={()=> {if (backButton.onClick) backButton.onClick()}}
+                    />
                 }
                 {
                     nextButton &&                    
-                    <button {...nextButton}>next</button>
+                    // <button {...nextButton}>next</button>
+                    <ButtonUI 
+                        name="next"
+                        size="small"
+                        padding="15px"
+                        boderRadius="20px"                        
+                        type={"submit"}
+                        form={nextButton.form}
+                        onClick={()=> {if (nextButton.onClick) nextButton.onClick()}}
+                    />
                 }
             </div>              
         </div>

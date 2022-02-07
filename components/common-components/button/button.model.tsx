@@ -4,4 +4,6 @@ export type Props = {
   onClick?: () => void;
   padding?: string;
   boderRadius?: string;
+  type?: string;
+  form?: string
 };

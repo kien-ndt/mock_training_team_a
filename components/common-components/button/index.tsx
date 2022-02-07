@@ -35,6 +35,8 @@ const ButtonUI: React.FC<Props> = ({
   onClick,
   padding,
   boderRadius,
+  form,
+  type
 }) => {
   return (
     <>
@@ -77,6 +79,8 @@ const ButtonUI: React.FC<Props> = ({
             size={size}
             onClick={onClick}
             endIcon={<NavigateNextIcon />}
+            form={form}
+            type={type}
           >
             Next
           </Button>
