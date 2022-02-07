@@ -51,7 +51,7 @@ const Home: NextPage = () => {
         onClick={testFunction}
         boderRadius="20px"
       /> */}
-      <PersistentDrawerLeft/>
+      <PersistentDrawerLeft />
       {/* <ButtonAppBar/> */}
     </div>
   );

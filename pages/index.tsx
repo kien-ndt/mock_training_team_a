@@ -7,14 +7,11 @@ import TitleUpload from "../components/modules/registration/common/titleUpload";
 import Footer from "../components/layout/footer";
 import ButtonUI from "../components/common-components/button";
 import PersistentDrawerLeft from "../components/layout/sidebar/sidebar";
-<<<<<<< HEAD
 import BasicTable from "../components/layout/header/DropDownList";
 import BottomAppBar from "../components/layout/header/DropDownList";
 import ButtonAppBar from "../components/layout/header/header";
-=======
 import AttachMents from "../components/modules/registration/attachments";
 import Submission from "../components/layout/content/submission";
->>>>>>> 7fc94b68cea9929bde138c66d40c666f8f07168e
 const Home: NextPage = () => {
   const [state, setState] = useState("");
   useEffect(() => {
@@ -39,11 +36,8 @@ const Home: NextPage = () => {
           setState(e.target.value)
         }
       />
-<<<<<<< HEAD
-      
-=======
+
       <Submission onClickBack={testFunction} onClickNext={testFunction} />
->>>>>>> 7fc94b68cea9929bde138c66d40c666f8f07168e
     </div>
   );
 };
