@@ -18,7 +18,6 @@ const Submission: React.FC<Props> = ({ onClickNext, onClickBack }) => {
     textAlign: "right",
     width: "100%",
     float: "right",
-    margin: "10px",
     display: "flex",
     alignItems: "right",
     justifyContent: "right",

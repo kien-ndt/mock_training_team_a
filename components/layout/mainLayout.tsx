@@ -32,6 +32,7 @@ import Styles from "./mainLayout.module.css";
 import { MainContextProvider } from '../../context/MainContext'
 
 import ButtonAppBar from './header/header';
+import MainContent from './content';
 
 const drawerWidth = 300;
 
@@ -75,12 +76,16 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   padding: theme.spacing(0, 1),
+  paddingBottom: 0,
+  paddingTop: 0,
+  boxSizing: "border-box",
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
+  height: "64px",
   justifyContent: 'flex-end',
 }));
 
-export default function PersistentDrawerLeft(props: { children: any }) {
+export default function PersistentDrawerLeft(props: { children: any, titleContent?: string }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -96,8 +101,19 @@ export default function PersistentDrawerLeft(props: { children: any }) {
     <MainContextProvider>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar position="fixed" open={open}>
-
+        <AppBar position="fixed" open={open} >
+          {/* <IconButton
+             color="inherit"
+             aria-label="open drawer"
+             onClick={handleDrawerOpen}
+             edge="start"
+             sx={{ mr: 2, ...(open && { display: 'none' }) }}
+           >
+             <MenuIcon />
+           </IconButton>
+           <Typography variant="h6" noWrap component="div">
+             Persistent drawer
+           </Typography> */}
           <ButtonAppBar
             iconSidebar={
               <IconButton
@@ -131,24 +147,38 @@ export default function PersistentDrawerLeft(props: { children: any }) {
           open={open}
         >
           <DrawerHeader>
-
+            {/* <Image
+      src="/public/logo.PNG"
+      alt="Picture of the author"
+      width={500}
+      height={300}
+    /> */}
             <IconButton onClick={handleDrawerClose}>
               {theme.direction === 'ltr' ? <MenuIcon /> : <MenuIcon />}
             </IconButton>
           </DrawerHeader>
           <Divider />
           <Sidebar />
-          <Divider />
-
+          {/* <Divider /> */}
+          {/* <List>
+           {['All mail', 'Trash', 'Spam'].map((text, index) => (
+             <ListItem button key={text}>
+               <ListItemIcon>
+                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+               </ListItemIcon>
+               <ListItemText primary={text} />
+             </ListItem>
+           ))}
+         </List> */}
         </Drawer>
 
 
 
-        <Main open={open}>
+        <Main open={open} style={{ padding: 0 }}>
           <DrawerHeader />
-          <div>
+          <MainContent title={props.titleContent ? props.titleContent : "."}>
             {props.children}
-          </div>
+          </MainContent>
         </Main>
       </Box>
     </MainContextProvider>
