@@ -5,7 +5,7 @@
  * https://mui.com/components/grid/
  * sử dụng grid để chia bố cục
  */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm, Controller  } from 'react-hook-form'
 import { formInput } from './commonType'
 import TextFieldCustom from '../../../common-components/input';
@@ -23,15 +23,20 @@ type propsType = {
     fields: Array<formInput>
     submitForm: (data: any) => void
     formId: string
+    defaultValue?: any
 }
 
 /**
  * template form component, receive array input props fields, callback submitForm and formId to be submitted from anywhere
  */
 function RegistrationForm(props: propsType) {
-    const { control, handleSubmit } = useForm();
+    const { control, handleSubmit, reset } = useForm();
 
-    const {fields, submitForm, formId} = props;
+    const {fields, submitForm, formId, defaultValue} = props;
+
+    useEffect(() => {
+        reset(defaultValue)
+    }, [defaultValue])
 
     return (
         <form onSubmit={handleSubmit(submitForm)} id={formId}>
@@ -51,7 +56,7 @@ function RegistrationForm(props: propsType) {
                                 render={
                                     ({ field }) => {
                                         if (item.type === "input") {
-                                            return <TextFieldCustom {...field} fullWidth placeholder={item.placeholder}/>
+                                            return <TextFieldCustom {...field} fullWidth placeholder={item.placeholder} readOnly={item.readOnly}/>
                                         }
                                         else{
                                             return <SelectBoxCustom {...field} fullWidth options={item.optionsSelect} placeholder={item.placeholder}/>

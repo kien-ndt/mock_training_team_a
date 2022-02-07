@@ -6,6 +6,7 @@ import ContentBox from '../../common-components/content_box'
 import SectionA from './sectionA'
 import SectionB from './sectionB'
 import SectionC from './sectionC'
+import Submission from './submission'
 import {idFormSectionA, idFormSectionB, idFormSectionC} from './common/constants'
 import Stepper from '../../../pages/registration/stepper'
 import Styles from './registration.module.css'
@@ -65,7 +66,9 @@ function RegistrationComponent(){
     const listRegistrationComponents: Array<JSX.Element> = [
         <SectionA submitForm={(data: any) => submitCurrentStep(state.step, data)} formId={idFormSectionA}/>, 
         <SectionB submitForm={(data: any) => submitCurrentStep(state.step, data)} formId={idFormSectionB}/>, 
-        <SectionC submitForm={(data: any) => submitCurrentStep(state.step, data)} formId={idFormSectionC}/>
+        <SectionC submitForm={(data: any) => submitCurrentStep(state.step, data)} formId={idFormSectionC}/>,
+        <Submission data = {state.submitData}/>,        
+        <Submission data = {state.submitData}/>
     ]
     /**
      * List id form
@@ -87,7 +90,10 @@ function RegistrationComponent(){
     return(
         <ContentBox 
             backButton={{onClick: () => backClick(state.step)}}
-            nextButton={{type: "submit", form: getRegistrationFormId(state.step)}}
+            nextButton={
+                state.step!==3?{type: "submit", form: getRegistrationFormId(state.step)}
+                :{onClick: () => setState({...state, step: state.step+1})}
+            }
         >            
             <Stepper step={String(state.step+1)} />
             <h4 className={Styles["registration-note"]}>Step {state.step+1}/{totalStep}</h4>            

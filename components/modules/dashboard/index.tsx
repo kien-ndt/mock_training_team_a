@@ -1,28 +1,20 @@
 import Styles from "./dashboard.module.css"
 import PaginationButtons from "../../common-components/pagination"
 import Element from "./common/element"
-<<<<<<< HEAD
 import SearchBar from "./searchBar"
-=======
 import ButtonUI from "../../common-components/button"
->>>>>>> 58823d4042c93707acab440d9e5790dac054f0cc
-
+import { useContext, useEffect } from "react"
+import { MainContext } from "../../../context/MainContext";
 function DashboardComponent() {
+    
+    const { updateContentComponentId } = useContext(MainContext)
+    useEffect(() => {
+        updateContentComponentId("dashboard")
+    }, [])
     return (
         <div className={Styles["dashboard-container"]}>
-<<<<<<< HEAD
-            <div><SearchBar /></div>
-            <div className={Styles["content"]}>
-                <Element
-
-=======
             <div>
-                <ButtonUI
-                    name="search"
-                    size="large"
-                    padding="15px"
-                    boderRadius="8px"
-                />
+                <SearchBar />
             </div>
             <div className={Styles["content"]}>
                 <Element
@@ -68,7 +60,6 @@ function DashboardComponent() {
                 <Element
                     image="https://www.tripwire.com/state-of-security/wp-content/uploads/sites/3/shutterstock_161265113.jpg"
                     content="INTEGRATED SERCURITY PLATFORMS"
->>>>>>> 58823d4042c93707acab440d9e5790dac054f0cc
                 />
                
             </div>

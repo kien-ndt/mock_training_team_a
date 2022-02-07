@@ -9,6 +9,7 @@ export declare type formInput = {
     rules?: any
     optionsSelect?: Array<optionValueTypeSelectBox>
     placeholder?:string
+    readOnly?: boolean | undefined
 }
 
 /**
