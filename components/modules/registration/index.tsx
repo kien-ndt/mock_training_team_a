@@ -42,7 +42,7 @@ function RegistrationComponent(){
      */
     const backClick = (step: number):void => {
         let newSubmitData: any = state.submitData?{...state.submitData}:{}
-        newSubmitData[step] = undefined;
+        // newSubmitData[step] = undefined;
         setState({
             step: step - 1,
             submitData: newSubmitData

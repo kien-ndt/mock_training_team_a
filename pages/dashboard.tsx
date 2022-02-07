@@ -2,8 +2,13 @@
  * import dashboard, bọc trong mainlayout
  */
 import PersistentDrawerLeft from "../components/layout/mainLayout";
+import DashboardComponent from "../components/modules/dashboard";
 function Dashboard(){
-    return <h1>dashboard</h1>
+    return (
+        <>
+        <DashboardComponent/>
+        </>
+    )
 }
 
 Dashboard.titleContent="Dashboard"
