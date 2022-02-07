@@ -25,19 +25,7 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      <Stepper step="attachments" />
-      <AttachMents
-        title="1. Company's last signed audited fanacial statement"
-        onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
-          setState(e.target.value)
-        }
-      />
-      <AttachMents
-        title="1. Company's last signed audited fanacial statement"
-        onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
-          setState(e.target.value)
-        }
-      />
+      
     </div>
   );
 };

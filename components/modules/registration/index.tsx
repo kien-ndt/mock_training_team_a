@@ -7,6 +7,8 @@ import SectionA from './sectionA'
 import SectionB from './sectionB'
 import SectionC from './sectionC'
 import {idFormSectionA, idFormSectionB, idFormSectionC} from './common/constants'
+import Stepper from '../../../pages/registration/stepper'
+
 
 /**
  * step: 1-5
@@ -79,6 +81,7 @@ function RegistrationComponent(){
             backButton={{onClick: () => backClick(state.step)}}
             nextButton={{type: "submit", form: getRegistrationFormId(state.step)}}
         >
+             <Stepper step="4" />
             {getRegistrationComponents(state.step)}
         </ContentBox>
     )
