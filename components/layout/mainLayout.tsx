@@ -19,20 +19,12 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import { Sidebar } from './sidebar/sidebar';
 import Styles from "./mainLayout.module.css";
-//  import Image from 'next/image'
 import { MainContextProvider } from '../../context/MainContext'
-
 import ButtonAppBar from './header/header';
 import MainContent from './content';
+import Image from 'next/image';
 
 const drawerWidth = 300;
 
@@ -82,7 +74,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   height: "64px",
-  justifyContent: 'flex-end',
+  justifyContent: 'space-between',
 }));
 
 export default function PersistentDrawerLeft(props: { children: any, titleContent?: string }) {
@@ -102,18 +94,7 @@ export default function PersistentDrawerLeft(props: { children: any, titleConten
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar position="fixed" open={open} >
-          {/* <IconButton
-             color="inherit"
-             aria-label="open drawer"
-             onClick={handleDrawerOpen}
-             edge="start"
-             sx={{ mr: 2, ...(open && { display: 'none' }) }}
-           >
-             <MenuIcon />
-           </IconButton>
-           <Typography variant="h6" noWrap component="div">
-             Persistent drawer
-           </Typography> */}
+
           <ButtonAppBar
             iconSidebar={
               <IconButton
@@ -123,6 +104,7 @@ export default function PersistentDrawerLeft(props: { children: any, titleConten
                 edge="start"
                 sx={{ mr: 2, ...(open && { display: 'none' }) }}
               >
+
                 <MenuIcon />
               </IconButton>
             }
@@ -146,30 +128,15 @@ export default function PersistentDrawerLeft(props: { children: any, titleConten
           anchor="left"
           open={open}
         >
+
           <DrawerHeader>
-            {/* <Image
-      src="/public/logo.PNG"
-      alt="Picture of the author"
-      width={500}
-      height={300}
-    /> */}
+            <Image src="/vercel.svg" width={72} height={16} />
             <IconButton onClick={handleDrawerClose}>
               {theme.direction === 'ltr' ? <MenuIcon /> : <MenuIcon />}
             </IconButton>
           </DrawerHeader>
           <Divider />
           <Sidebar />
-          {/* <Divider /> */}
-          {/* <List>
-           {['All mail', 'Trash', 'Spam'].map((text, index) => (
-             <ListItem button key={text}>
-               <ListItemIcon>
-                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-               </ListItemIcon>
-               <ListItemText primary={text} />
-             </ListItem>
-           ))}
-         </List> */}
         </Drawer>
 
 

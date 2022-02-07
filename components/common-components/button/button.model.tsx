@@ -1,5 +1,5 @@
 export type Props = {
-  size?: string;
+  size?: "small" | "large" | "medium";
   name?: string;
   onClick?: () => void;
   padding?: string;

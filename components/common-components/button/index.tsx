@@ -44,7 +44,6 @@ const ButtonUI: React.FC<Props> = ({
             sx={{
               color: "white",
               bgcolor: "#D03A2B",
-              minWidth: "120px",
               padding: `${padding}`,
               borderRadius: `${boderRadius}`,
               fontWeight: "bold",
@@ -53,7 +52,7 @@ const ButtonUI: React.FC<Props> = ({
                 bgcolor: "#D03A2B",
               },
             }}
-            size={size}
+            size={size ? size : "medium"}
             onClick={onClick}
           >
             Search
