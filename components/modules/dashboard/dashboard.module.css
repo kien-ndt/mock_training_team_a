@@ -2,7 +2,13 @@
     display: flex;
     width: 100%;
     min-height: 100%;
-    background-color: inherit;
+    background-color: white;
     flex: 1;
     flex-direction: column;
+}
+
+.dashboard-container .content {
+    flex: 1;
+    margin-top: 15px;
+    display: flex;
 }
