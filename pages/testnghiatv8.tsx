@@ -7,8 +7,8 @@ import TitleUpload from "../components/modules/registration/common/title_upload"
 import Footer from "../components/layout/footer";
 import ButtonUI from "../components/common-components/button";
 import PersistentDrawerLeft from "../components/layout/mainLayout";
-import BasicTable from "../components/layout/header/DropDownList";
-import BottomAppBar from "../components/layout/header/DropDownList";
+import BasicTable from "../components/layout/header/buttonInfo";
+import BottomAppBar from "../components/layout/header/buttonInfo";
 import ButtonAppBar from "../components/layout/header/header";
 const Home: NextPage = () => {
   // const [state, setState] = useState("");
