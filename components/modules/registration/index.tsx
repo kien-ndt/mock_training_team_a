@@ -87,15 +87,42 @@ function RegistrationComponent(){
         return listIdForm[step]
     }
 
+    const getPropsOfBackButton = (step: number) => {
+        if (step === 0){
+            return undefined;
+        }
+        else {
+            return {onClick: () => backClick(state.step)}
+        }
+    }
+
+    const getPropsOfNextButton = (step: number) => {
+        let res = {}
+        if (step!==3){
+            res = {type: "submit", form: getRegistrationFormId(state.step)}
+        }
+        else {
+            res = {onClick: () => setState({...state, step: state.step+1})}
+        }       
+        return res;
+    }
+
+    const callbackStepClick = (step: number) => {
+        setState({
+            ...state,
+            step: step
+        })
+    }
     return(
         <ContentBox 
-            backButton={{onClick: () => backClick(state.step)}}
+            backButton={
+                getPropsOfBackButton(state.step)
+            }
             nextButton={
-                state.step!==3?{type: "submit", form: getRegistrationFormId(state.step)}
-                :{onClick: () => setState({...state, step: state.step+1})}
+                getPropsOfNextButton(state.step)
             }
         >            
-            <Stepper step={String(state.step+1)} />
+            <Stepper step={String(state.step+1)} stepClick={(step: number) => callbackStepClick(step)}/>
             <h4 className={Styles["registration-note"]}>Step {state.step+1}/{totalStep}</h4>            
             <h2 className={Styles["registration-title"]}>{listRegistrationComponentsName[state.step]}</h2>
             {getRegistrationComponents(state.step)}

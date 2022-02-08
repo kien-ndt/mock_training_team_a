@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import OutlinedInput from '@mui/material/OutlinedInput';
+import TextField from '@mui/material/TextField';
 import Styles from "./input.module.css"
 
 type propsType = {
@@ -35,25 +36,33 @@ const TextFieldCustom = React.forwardRef((props: propsType, ref: any) => {
 
     const elementStyle = style? style: {};
 
-    if (!fullWidth) {
+    if (!fullWidth && !style?.width) {
         elementStyle.width = "200px"
     }
 
     return(
         <>
-            <OutlinedInput
+            <TextField
                 ref={ref}
+                variant={readOnly?"standard":"outlined"}
                 id="outlined-weight"
                 name={name?name:"input-name"}
                 fullWidth={fullWidth?fullWidth:false}
                 placeholder={placeholder?placeholder:""}
                 value={value?value:""}   
-                readOnly={readOnly?readOnly:false}       
-                onChange={onChange?onChange:()=>{return}}      
-                inputProps={{
+                // readOnly={readOnly?readOnly:false}       
+                disabled={readOnly?readOnly:false}
+                onChange={onChange?onChange:()=>{return}}                    
+                inputProps={readOnly?{
+                    className: Styles["outline-input"] + " " + Styles["disabled"],
+                    style: elementStyle,  
+                }:{
                     className: Styles["outline-input"],
-                    style: elementStyle
+                    style: elementStyle,  
                 }}
+                InputProps={
+                    readOnly?{disableUnderline: true}:{}
+                }                
             />
         </>
     )

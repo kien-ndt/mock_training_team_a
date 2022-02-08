@@ -10,6 +10,7 @@ import Submission from "../../components/layout/content/submission";
 
 type Props = {
     step: string;
+    stepClick?: (step: number) => void
 };
 
 /**

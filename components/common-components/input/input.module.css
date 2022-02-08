@@ -5,3 +5,12 @@
     font-size: 1rem;
     height: 1.5rem;
 }
+
+.outline-input.disabled {
+    /* background-color: rgb(233, 227, 227); */
+    background-color: rgb(231, 227, 227);
+    -webkit-text-fill-color: unset;
+    color: black;
+    font-weight: bold;
+    border: none;
+}
